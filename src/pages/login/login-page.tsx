@@ -29,48 +29,46 @@ const LoginPage = () => {
   };
 
   return (
-    <div className='dark text-zinc-100 flex flex-col items-center justify-center h-dvh bg-gray-900'>
-      <div className='max-w-sm space-y-6'>
-        <div className='space-y-2 text-center'>
-          <h1 className='text-3xl font-bold'>Login</h1>
-          <p>Enter your username and password to login to your account</p>
-        </div>
-
-        <form
-          className='space-y-4'
-          onSubmit={handleSubmit}>
-          <Input
-            id='email'
-            label='Email'
-            autoFocus
-            ref={emailRef}
-            required
-          />
-          <Input
-            id='password'
-            label='Password'
-            type='password'
-            ref={passwordRef}
-            required
-          />
-          <Button
-            className='w-full'
-            type='submit'
-            disabled={isLoading}>
-            Login
-          </Button>
-        </form>
-
-        <div className='mt-4 text-center text-sm'>
-          Don&apos;t have an account?{' '}
-          <a
-            className='underline'
-            href='#'>
-            Sign up
-          </a>
-        </div>
+    <>
+      <div className='space-y-2 text-center'>
+        <h1 className='text-3xl font-bold'>Login</h1>
+        <p>Enter your username and password to login to your account</p>
       </div>
-    </div>
+
+      <form
+        className='space-y-4'
+        onSubmit={handleSubmit}>
+        <Input
+          id='email'
+          label='Email'
+          autoFocus
+          ref={emailRef}
+          required
+        />
+        <Input
+          id='password'
+          label='Password'
+          type='password'
+          ref={passwordRef}
+          required
+        />
+        <Button
+          className='w-full'
+          type='submit'
+          disabled={isLoading}>
+          Login
+        </Button>
+      </form>
+
+      <div className='mt-4 text-center text-sm'>
+        Don&apos;t have an account?{' '}
+        <a
+          className='underline'
+          href='#'>
+          Sign up
+        </a>
+      </div>
+    </>
   );
 };
 
