@@ -1,26 +1,21 @@
-import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
+import { LoginLayout } from '../layouts/login-layout';
 import { LoginPage } from '@/pages/login';
+import { SignupPage } from '@/pages/signup';
 
 export const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route
-          element={
-            <div className='dark text-zinc-100 flex flex-col items-center justify-center h-dvh w-screen bg-gray-900 overflow-hidden'>
-              <div className='max-w-sm space-y-6'>
-                <Outlet />
-              </div>
-            </div>
-          }>
+        <Route Component={LoginLayout}>
           <Route
             path='login'
             Component={LoginPage}
           />
           <Route
             path='signup'
-            element={<> signup </>}
+            Component={SignupPage}
           />
         </Route>
 

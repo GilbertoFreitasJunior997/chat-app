@@ -1,14 +1,15 @@
 import { FormEvent, useRef, useState } from 'react';
 
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input/input';
+import { Input } from '@/components/ui/input';
 import { Link } from 'react-router-dom';
 
-const LoginPage = () => {
+const SignupPage = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
+  const confirmPasswordRef = useRef<HTMLInputElement>(null);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -18,8 +19,9 @@ const LoginPage = () => {
 
       const email = emailRef.current?.value;
       const password = passwordRef.current?.value;
+      const confirmPassword = confirmPasswordRef.current?.value;
 
-      if (!email || !password) return;
+      if (!email || !password || !confirmPassword) return;
 
       console.log(email, password);
     } catch (e) {
@@ -32,8 +34,8 @@ const LoginPage = () => {
   return (
     <>
       <div className='space-y-2 text-center'>
-        <h1 className='text-3xl font-bold'>Login</h1>
-        <p>Enter your username and password to login to your account</p>
+        <h1 className='text-3xl font-bold'>Sign Up</h1>
+        <p>Enter your information to create an account</p>
       </div>
 
       <form
@@ -53,24 +55,31 @@ const LoginPage = () => {
           ref={passwordRef}
           required
         />
+        <Input
+          id='confirm-password'
+          label='Confirm Password'
+          type='password'
+          ref={confirmPasswordRef}
+          required
+        />
         <Button
           className='w-full'
           type='submit'
           disabled={isLoading}>
-          Login
+          Sign Up
         </Button>
       </form>
 
       <div className='mt-4 text-center text-sm'>
-        Don&apos;t have an account?{' '}
+        Already have an account?{' '}
         <Link
           className='underline'
-          to='/signup'>
-          Sign up
+          to='/login'>
+          Login
         </Link>
       </div>
     </>
   );
 };
 
-export default LoginPage;
+export default SignupPage;
