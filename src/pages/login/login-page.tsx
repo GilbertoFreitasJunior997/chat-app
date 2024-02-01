@@ -1,14 +1,16 @@
 import { FormEvent, useRef, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input/input';
-import { Link } from 'react-router-dom';
 
 const LoginPage = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
+
+  const navigate = useNavigate();
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -21,7 +23,7 @@ const LoginPage = () => {
 
       if (!email || !password) return;
 
-      console.log(email, password);
+      navigate('/chat');
     } catch (e) {
       //
     } finally {
