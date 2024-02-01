@@ -1,6 +1,6 @@
 import { Chat } from '@/components/chat';
 import { ChatLayout } from '@/components/chat-layout';
-import { FriendsSidebar } from '@/components/friends-sidebar';
+import { UsersSidebar } from '@/components/users-sidebar';
 import { Topbar } from '@/components/topbar';
 import { Resizable } from '@/components/ui/resizable';
 
@@ -9,7 +9,7 @@ const ChatPage = () => {
     <ChatLayout>
       <Topbar />
       <Resizable.Group direction='horizontal'>
-        <FriendsSidebar />
+        <UsersSidebar />
         <Resizable.Handle withHandle />
         <Chat />
       </Resizable.Group>
